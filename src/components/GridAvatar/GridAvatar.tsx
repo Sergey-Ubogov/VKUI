@@ -9,7 +9,7 @@ export interface GridAvatarProps
   extends React.HTMLAttributes<HTMLDivElement>,
     HasRootRef<HTMLDivElement>,
     Pick<AvatarProps, "size" | "shadow" | "badge"> {
-  src?: string[];
+  src?: [string, string?, string?, string?];
 }
 
 const MIN_GRID_LENGTH = 1;
@@ -18,9 +18,9 @@ const MAX_GRID_LENGTH = 4;
 const warn = warnOnce("GridAvatar");
 
 export const GridAvatar: React.FC<GridAvatarProps> = ({
-  src = [],
+  src = [""],
   ...restProps
-}: GridAvatarProps) => {
+}) => {
   if (process.env.NODE_ENV === "development" && src.length > MAX_GRID_LENGTH) {
     warn(
       `Размер пропа src (${src.length}) больше максимального (${MAX_GRID_LENGTH})`

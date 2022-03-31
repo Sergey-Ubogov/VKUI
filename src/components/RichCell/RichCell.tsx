@@ -4,7 +4,7 @@ import { usePlatform } from "../../hooks/usePlatform";
 import { getClassName } from "../../helpers/getClassName";
 import Tappable, { TappableProps } from "../Tappable/Tappable";
 import { hasReactNode } from "../../lib/utils";
-import Text from "../Typography/Text/Text";
+import { Text } from "../Typography/Text/Text";
 import Subhead from "../Typography/Subhead/Subhead";
 import { withAdaptivity } from "../../hoc/withAdaptivity";
 import "./RichCell.css";
@@ -71,17 +71,13 @@ const RichCell: React.FC<RichCellProps> = ({
       <div vkuiClass="RichCell__in">
         {/* Этот after будет скрыт из верстки. Он нужен для CSS */}
         {after}
-        <Text weight="medium" vkuiClass="RichCell__content">
+        <Text weight="1" vkuiClass="RichCell__content">
           <div vkuiClass="RichCell__children">{children}</div>
           {hasReactNode(after) && (
             <div vkuiClass="RichCell__after">{after}</div>
           )}
         </Text>
-        {hasReactNode(text) && (
-          <Text weight="regular" vkuiClass="RichCell__text">
-            {text}
-          </Text>
-        )}
+        {hasReactNode(text) && <Text vkuiClass="RichCell__text">{text}</Text>}
         {hasReactNode(caption) && (
           <Subhead Component="span" vkuiClass="RichCell__caption">
             {caption}

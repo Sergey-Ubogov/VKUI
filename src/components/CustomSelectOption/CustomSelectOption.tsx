@@ -2,7 +2,7 @@ import * as React from "react";
 import { Icon16Done } from "@vkontakte/icons";
 import { classNames } from "../../lib/classNames";
 import { hasReactNode } from "../../lib/utils";
-import Text from "../Typography/Text/Text";
+import { Text } from "../Typography/Text/Text";
 import { Caption } from "../Typography/Caption/Caption";
 import { HasRootRef } from "../../types";
 import { useAdaptivity } from "../../hooks/useAdaptivity";
@@ -46,7 +46,6 @@ const CustomSelectOption: React.FC<CustomSelectOptionProps> = ({
     <Text
       {...restProps}
       Component="div"
-      weight="regular"
       role="option"
       title={title}
       aria-disabled={disabled}

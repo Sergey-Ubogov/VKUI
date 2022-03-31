@@ -15,7 +15,7 @@ import Tappable from "../Tappable/Tappable";
 import IconButton from "../IconButton/IconButton";
 import Headline from "../Typography/Headline/Headline";
 import Subhead from "../Typography/Subhead/Subhead";
-import Text from "../Typography/Text/Text";
+import { Text } from "../Typography/Text/Text";
 import Title from "../Typography/Title/Title";
 import "./Banner.css";
 
@@ -98,11 +98,7 @@ const BannerSubheader: React.FC<BannerTypographyProps> = ({
   size,
   ...restProps
 }) => {
-  return size === "m" ? (
-    <Text weight="regular" {...restProps} />
-  ) : (
-    <Subhead {...restProps} />
-  );
+  return size === "m" ? <Text {...restProps} /> : <Subhead {...restProps} />;
 };
 
 const Banner: React.FC<BannerProps> = (props: BannerProps) => {
@@ -169,11 +165,7 @@ const Banner: React.FC<BannerProps> = (props: BannerProps) => {
               {subheader}
             </BannerSubheader>
           )}
-          {hasReactNode(text) && (
-            <Text weight="regular" vkuiClass="Banner__text">
-              {text}
-            </Text>
-          )}
+          {hasReactNode(text) && <Text vkuiClass="Banner__text">{text}</Text>}
           {hasReactNode(actions) && React.Children.count(actions) > 0 && (
             <div vkuiClass="Banner__actions">{actions}</div>
           )}
